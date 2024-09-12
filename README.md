@@ -176,5 +176,11 @@ git commit -m "chore: initial commit"
 ```
 
 ```bash
-pnpm pkg set scripts.prepare="husky install"
+pnpm pkg set scripts.prepare="husky init"
+echo "npx lint-staged" > .husky/pre-commit
+```
+
+```bash
+git add .
+git commit -m "chore: add husky"
 ```
