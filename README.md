@@ -184,3 +184,41 @@ echo "npx lint-staged" > .husky/pre-commit
 git add .
 git commit -m "chore: add husky"
 ```
+
+> → No staged files match any configured task.
+> [main 1d25f19] chore: add husky
+> 3 files changed, 9 insertions(+), 2 deletions(-)
+> create mode 100644 .husky/pre-commit
+
+### Linting the Commit Message
+
+- https://commitlint.js.org/guides/getting-started
+
+```bash
+pnpm add -D @commitlint/cli@19.5.0 \
+@commitlint/config-conventional@19.5.0
+```
+
+#### configuration
+
+```bash
+echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+```
+
+Add commitlint command to husky
+
+```bash
+echo "npx commitlint --edit ${1}" > .husky/commit-msg
+```
+
+#### Verification
+
+The commit message should follow the conventional commit format.
+
+- https://www.conventionalcommits.org/
+
+```bash
+git add .
+git commit -m "wrong message"
+git commit -m "chore: add commitlint"
+```
