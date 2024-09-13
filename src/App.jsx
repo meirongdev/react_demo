@@ -1,35 +1,53 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { CreatePost } from './components/CreatePost.jsx'
+import { PostSorting } from './components/PostSorting.jsx'
+import { PostFilter } from './components/PostFilter.jsx'
+import { PostList } from './components/PostList.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [author, setAuthor] = useState('')
+  const [sortBy, setSortBy] = useState('createdAt')
+  const [sortOrder, setSortOrder] = useState('descending')
 
+  const posts = [
+    {
+      _id: '1',
+      title: 'First Post',
+      contents: 'This is the first post.',
+      author: 'Alice',
+      createdAt: new Date('2021-07-01'),
+      updatedAt: new Date('2021-07-01'),
+    },
+    {
+      _id: '2',
+      title: 'Second Post',
+      contents: 'This is the second post.',
+      author: 'Bob',
+      createdAt: new Date('2021-07-02'),
+      updatedAt: new Date('2021-07-02'),
+    },
+  ]
   return (
-    <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='container'>
+      <h1>Blog</h1>
+
+      <PostFilter
+        field='author'
+        value={author}
+        onChange={(value) => setAuthor(value)}
+      />
+      <PostSorting
+        fields={['createdAt', 'updatedAt']}
+        value={sortBy}
+        onChange={(value) => setSortBy(value)}
+        orderValue={sortOrder}
+        onOrderChange={(orderValue) => setSortOrder(orderValue)}
+      />
+
+      <main>
+        <PostList posts={posts} />
+        <CreatePost />
+      </main>
+    </div>
   )
 }
-
-export default App
