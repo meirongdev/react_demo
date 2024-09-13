@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { CreatePost } from '../components/CreatePost.jsx'
 import { PostSorting } from '../components/PostSorting.jsx'
 import { PostFilter } from '../components/PostFilter.jsx'
 import { PostList } from '../components/PostList.jsx'
@@ -17,6 +16,7 @@ export function Blog() {
   })
 
   const posts = postQuery.data || []
+
   return (
     <div className='container'>
       <Header />
@@ -35,7 +35,6 @@ export function Blog() {
 
       <main>
         <PostList posts={posts} />
-        <CreatePost />
       </main>
     </div>
   )
