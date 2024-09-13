@@ -20,3 +20,18 @@
 - Sign up
 - Sign in
 - Sign out
+
+## Screenshots
+
+![Blog](./screenshot.png)
+
+## Run Locally
+
+```bash
+pnpm install
+pnpm dev
+```
+
+## Backend
+
+[express+mongodb](https://github.com/meirongdev/express_mongoose)
