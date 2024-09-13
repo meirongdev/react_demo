@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 
-export function Post({ title, contents, author }) {
+export function Post({ title, content, author }) {
   return (
     <article>
       <h3>{title}</h3>
-      <div>{contents}</div>
+
+      <div>{content}</div>
       {author && (
         <em>
           <br />
@@ -17,6 +18,6 @@ export function Post({ title, contents, author }) {
 
 Post.propTypes = {
   title: PropTypes.string.isRequired,
-  contents: PropTypes.string,
+  content: PropTypes.string,
   author: PropTypes.string,
 }
