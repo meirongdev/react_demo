@@ -20,7 +20,7 @@ export function Signup() {
   }
 
   return (
-    <div className='container'>
+    <div>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Signup</legend>

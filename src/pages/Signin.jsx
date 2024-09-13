@@ -24,7 +24,7 @@ export function Signin() {
   }
 
   return (
-    <div className='container'>
+    <div>
       <form>
         <fieldset>
           <legend>Signin</legend>

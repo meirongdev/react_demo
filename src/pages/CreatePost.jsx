@@ -31,7 +31,7 @@ export function CreatePost() {
     return <p>You must be signed in to create a post.</p>
   }
   return (
-    <div className='container'>
+    <div>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Create a new post</legend>

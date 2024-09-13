@@ -4,7 +4,6 @@ import { PostFilter } from '../components/PostFilter.jsx'
 import { PostList } from '../components/PostList.jsx'
 import { useQuery } from '@tanstack/react-query'
 import { getPosts } from '../api/posts.js'
-import { Header } from '../components/Header.jsx'
 
 export function Blog() {
   const [author, setAuthor] = useState('')
@@ -18,8 +17,7 @@ export function Blog() {
   const posts = postQuery.data || []
 
   return (
-    <div className='container'>
-      <Header />
+    <div>
       <PostFilter
         field='author'
         value={author}
@@ -33,9 +31,7 @@ export function Blog() {
         onOrderChange={(orderValue) => setSortOrder(orderValue)}
       />
 
-      <main>
-        <PostList posts={posts} />
-      </main>
+      <PostList posts={posts} />
     </div>
   )
 }
