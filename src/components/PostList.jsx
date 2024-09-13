@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import { Post } from './Post.jsx'
 
 export function PostList({ posts = [] }) {
-  console.log(posts)
   return (
     <section>
       {posts.map((post) => (
